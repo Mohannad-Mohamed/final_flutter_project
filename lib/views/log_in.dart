@@ -28,9 +28,9 @@ class _LogInState extends State<LogIn> {
           return AlertDialog(
             title: Center(
                 child: Text(
-              massage,
-              style: TextStyle(color: Colors.blue),
-            )),
+                  massage,
+                  style: TextStyle(color: Colors.blue),
+                )),
             backgroundColor: Colors.white,
           );
         });
@@ -43,8 +43,8 @@ class _LogInState extends State<LogIn> {
         builder: (context) {
           return Center(
               child: CircularProgressIndicator(
-            color: Colors.blue,
-          ));
+                color: Colors.blue,
+              ));
         });
 
     try {
@@ -71,7 +71,7 @@ class _LogInState extends State<LogIn> {
     return Scaffold(
       backgroundColor: Colors.blue[50],
       resizeToAvoidBottomInset:
-          false, // Prevents the keyboard from resizing the screen
+      false, // Prevents the keyboard from resizing the screen
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -94,7 +94,7 @@ class _LogInState extends State<LogIn> {
                         Text(
                           "Welcome Back",
                           style:
-                              TextStyle(color: Colors.grey[700], fontSize: 16),
+                          TextStyle(color: Colors.grey[700], fontSize: 16),
                         ),
                         SizedBox(height: 30),
                         MyTextField(
@@ -128,9 +128,9 @@ class _LogInState extends State<LogIn> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            MyIconButton(path: 'assets/1759492.png',signInMethod: IconAuth().signInWithGoogle,),
+                            MyIconButton(path: 'assets/google.png',signMethod: IconAuth().signInWithGoogle,),
                             SizedBox(width: 15),
-                            MyIconButton(path: 'assets/1759492.png',signInMethod: IconAuth().signInWithGoogle,),
+                            MyIconButton(path: 'assets/Facebook-l.png',signMethod: IconAuth().signInWithFacebook,),
                           ],
                         ),
                         SizedBox(height: 30),

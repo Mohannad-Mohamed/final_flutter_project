@@ -12,17 +12,17 @@ class NewsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     // Filter articles with valid image URLs
     final validArticles = articles.where((article) {
-      return article.image != null && 
-             article.image!.startsWith('http') &&
-             article.image!.isNotEmpty;
+      return article.image != null &&
+          article.image!.startsWith('http') &&
+          article.image!.isNotEmpty;
     }).toList();
 
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         childCount: validArticles.length,
-        (context, index) {
+            (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(vertical: 0),
             child: NewsTile(
               articleModel: validArticles[index],
             ),

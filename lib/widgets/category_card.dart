@@ -21,7 +21,7 @@ class CategoryCard extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.only(right: 16),
+        padding: const EdgeInsets.all(5),
         child: Container(
           height: 85,
           width: 160,

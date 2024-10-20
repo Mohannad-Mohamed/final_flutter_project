@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:news_app_ui_setup/views/log_in.dart';
 import 'package:news_app_ui_setup/widgets/hidden_drawer.dart';
 
-import '../views/home_view.dart';
 
 class Authentication extends StatelessWidget {
   const Authentication({super.key});

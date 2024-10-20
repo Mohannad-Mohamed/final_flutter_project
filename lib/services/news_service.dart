@@ -23,6 +23,14 @@ class NewsService {
 
       // Log the entire response
       print("Response received: ${response.data}");
+      // Log the entire response data
+      print("API Response: ${response.data}");
+
+// Log the 'articles' array specifically
+      if (response.data['articles'] != null) {
+        print("Articles: ${response.data['articles']}");
+      }
+
 
       // Check if the response status is successful
       if (response.statusCode == 200) {
@@ -36,12 +44,17 @@ class NewsService {
           if (articles.isNotEmpty) {
             // Map articles to ArticleModel list and filter out removed articles
             List<ArticleModel> articlesList = articles
-                .map((article) => ArticleModel.fromJson(article))
+                .map((article) {
+              var mappedArticle = ArticleModel.fromJson(article);
+              print("Article Title: ${mappedArticle.title} | Article URL: ${mappedArticle.url}"); // Log the title and URL
+              return mappedArticle;
+            })
                 .where((article) =>
-                    article.subTitle != null &&
-                    !article.title.toLowerCase().contains('removed') &&
-                    !article.subTitle!.toLowerCase().contains('removed'))
+            article.subTitle != null &&
+                !article.title.toLowerCase().contains('removed') &&
+                !article.subTitle!.toLowerCase().contains('removed'))
                 .toList();
+
 
             print("Retrieved ${articlesList.length} filtered articles.");
             return articlesList; // Return the filtered list of articles

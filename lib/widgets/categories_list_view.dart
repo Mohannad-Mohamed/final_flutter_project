@@ -11,7 +11,7 @@ class CategoriesListView extends StatelessWidget {
 
   final List<CategoryModel> categories = const [
     CategoryModel(
-      image: 'assets/business.avif',
+      image: 'assets/bs.jpg',
       categoryName: 'Business',
     ),
     CategoryModel(
@@ -31,11 +31,11 @@ class CategoriesListView extends StatelessWidget {
       categoryName: 'Technology',
     ),
     CategoryModel(
-      image: 'assets/sports.avif',
+      image: 'assets/Sport.jpg',
       categoryName: 'Sports',
     ),
     CategoryModel(
-      image: 'assets/general.avif',
+      image: 'assets/General.jpg',
       categoryName: 'General',
     ),
   ];
@@ -43,7 +43,7 @@ class CategoriesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 85,
+      height: 90,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,

@@ -25,10 +25,7 @@ class CategoryView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           slivers: [
             const SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.all(10),
-                child: CategoriesListView(),
-              ), // Keeps the categories list view at the top
+              child: CategoriesListView(), // Keeps the categories list view at the top
             ),
             NewsListViewBuilder(
               category: category,

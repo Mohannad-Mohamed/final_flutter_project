@@ -16,6 +16,8 @@ dependencies:
   firebase_auth: ^5.3.1
   hidden_drawer_menu: ^3.0.1
   google_sign_in: ^6.2.1
+  flutter_facebook_auth: ^7.1.1
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
@@ -28,7 +30,10 @@ flutter:
   assets:
     - assets/
 
-# Add the flutter_icons section outside of the flutter section
+
+
+
+#Add the flutter_icons section outside of the flutter section
 flutter_icons:
   android: true
   ios: true

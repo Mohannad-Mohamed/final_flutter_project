@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class MyIconButton extends StatelessWidget {
 
   final String path;
-  final void Function() signInMethod;
+  final void Function() signMethod;
 
-  const MyIconButton({required this.path, required this.signInMethod, super.key});
+  const MyIconButton({required this.path, required this.signMethod, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: signInMethod,
+    return GestureDetector(onTap: signMethod,
       child: Container(
         padding: EdgeInsets.all(10),
         child: Image.asset(path),

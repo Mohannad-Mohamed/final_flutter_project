@@ -33,21 +33,37 @@ class _RegisterState extends State<Register> {
   void buttonPressed () async {
 
     if(passwordController.text == repeatPasswordController.text) {
-      showDialog(context: context,builder: (context){
-        return Center(child: CircularProgressIndicator(color: Colors.blueAccent,));
-      });
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: emailController.text, password: passwordController.text);
-        Navigator.pop(context);
+      if(passwordController.text.length > 7) {
+        showDialog(context: context, builder: (context) {
+          return Center(
+              child: CircularProgressIndicator(color: Colors.blueAccent,));
+        });
+        try {
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text);
+          Navigator.pop(context);
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHiddenDrawer()));
+        }
+        on FirebaseAuthException catch (e) {
+          Navigator.pop(context);
+          if (e.code == 'too-many-request')
+            errorDialog("Close application\nopen it again");
+          else if(e.code == "email-already-in-use"){
+            errorDialog("Email is used\nGo to Log in");
+            //
+            // Future.delayed(Duration(seconds: 2), () {Navigator.pushReplacement(context,
+            //     MaterialPageRoute(builder: (context) => MyHiddenDrawer()),
+            // );});
+
+          }
+
+
+          else
+            errorDialog(e.code);
+        }
       }
-      on FirebaseAuthException catch (e) {
-        Navigator.pop(context);
-        if (e.code == 'too-many-request')
-          errorDialog("Close application and open again");
-        else
-          errorDialog(e.code);
-      }
+      else
+        errorDialog("Password less than 8");
     }
     else
       errorDialog("Password not equal Repeated Password");
@@ -105,9 +121,9 @@ class _RegisterState extends State<Register> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            MyIconButton(path: 'assets/1759492.png',signInMethod: IconAuth().signInWithGoogle,),
+                            MyIconButton(path: 'assets/google.png',signMethod: IconAuth().signInWithGoogle,),
                             SizedBox(width: 15),
-                            MyIconButton(path: 'assets/1759492.png',signInMethod: IconAuth().signInWithGoogle,),
+                            MyIconButton(path: 'assets/Facebook-l.png',signMethod: IconAuth().signInWithFacebook,),
                           ],
                         ),
                         SizedBox(height: 30),
